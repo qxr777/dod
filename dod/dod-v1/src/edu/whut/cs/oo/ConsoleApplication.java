@@ -7,6 +7,10 @@ import edu.whut.cs.oo.action.LoginAction;
 import edu.whut.cs.oo.domain.Function;
 import edu.whut.cs.oo.domain.User;
 
+/**
+ * @author qixin
+ *
+ */
 public class ConsoleApplication extends Application {
 	
 	public static void main(String[] args) throws Exception {

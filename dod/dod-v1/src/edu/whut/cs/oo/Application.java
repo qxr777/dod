@@ -14,6 +14,10 @@ import edu.whut.cs.oo.service.UserService;
 import edu.whut.cs.oo.service.impl.DocumentServiceImpl;
 import edu.whut.cs.oo.service.impl.UserServiceImpl;
 
+/**
+ * @author qixin
+ *
+ */
 public class Application {
 	
 	public static User currentUser;
