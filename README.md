@@ -1,7 +1,7 @@
 # dod
 Database of Documents
 
-《面向对象与多线程实验课程》档案管理项目开发分支
+《面向对象与多线程实验课程》档案管理项目主分支
 dod-v1命令行交互方式，用户和档案数据存放于container中。
 dod-v2 图形化用户界面的桌面应用程序。
 dod-v3 基于JDBC，将用户和档案数据持久化到Mysql的document数据库中。
