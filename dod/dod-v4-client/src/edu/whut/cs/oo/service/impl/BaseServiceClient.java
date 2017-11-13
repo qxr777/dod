@@ -13,7 +13,7 @@ import edu.whut.cs.oo.common.Constants;
 import edu.whut.cs.oo.common.Message;
 import edu.whut.cs.oo.domain.Document;
 import edu.whut.cs.oo.exception.BaseException;
-import edu.whut.cs.oo.exception.DaoException;
+import edu.whut.cs.oo.exception.NetworkException;
 import edu.whut.cs.oo.exception.ServerException;
 
 public abstract class BaseServiceClient {
@@ -40,9 +40,9 @@ public abstract class BaseServiceClient {
 			input.close();
 			client.close();
 		} catch (IOException e) {
-			throw new DaoException();
+			throw new NetworkException();
 		} catch (ClassNotFoundException e) {
-			throw new DaoException();
+			throw new NetworkException();
 		}
 		return message;
 	}
@@ -64,37 +64,12 @@ public abstract class BaseServiceClient {
 			input.close();
 			client.close();
 		} catch (IOException e) {
-			throw new DaoException();
+			throw new NetworkException();
 		} catch (ClassNotFoundException e) {
-			throw new DaoException();
+			throw new NetworkException();
 		}
 		return message;
 	}
-	
-//	protected Message receiveDocument(Message message) throws BaseException {
-//		try {
-//			client = new Socket(InetAddress.getByName(Constants.SERVER_ADDRESS), Constants.SERVER_LISTEN_PORT);			
-//			output = new ObjectOutputStream(client.getOutputStream());
-//			output.writeObject(message);
-//			output.flush(); 
-//			
-//			input = new ObjectInputStream(client.getInputStream());
-//			message = (Message)input.readObject();
-//			checkStatusCode(message);	
-//			
-//			Document document = (Document)message.getData();
-//			receiveFile(document.getName(), null);
-//			
-//			output.close();
-//			input.close();
-//			client.close();
-//		} catch (IOException e) {
-//			throw new DaoException();
-//		} catch (ClassNotFoundException e) {
-//			throw new DaoException();
-//		}
-//		return message;
-//	}
 	
 	protected Message receiveDocument(Message message, String targetPath) throws BaseException {
 		try {
@@ -114,9 +89,9 @@ public abstract class BaseServiceClient {
 			input.close();
 			client.close();
 		} catch (IOException e) {
-			throw new DaoException();
+			throw new NetworkException();
 		} catch (ClassNotFoundException e) {
-			throw new DaoException();
+			throw new NetworkException();
 		}
 		return message;
 	}
