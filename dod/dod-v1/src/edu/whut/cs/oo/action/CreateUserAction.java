@@ -1,7 +1,5 @@
 package edu.whut.cs.oo.action;
 
-import java.util.Scanner;
-
 import edu.whut.cs.oo.domain.Administrator;
 import edu.whut.cs.oo.domain.Browser;
 import edu.whut.cs.oo.domain.Operator;
@@ -13,8 +11,7 @@ public class CreateUserAction extends BaseAction {
 	
 	public static final String CREATE_USER_TEXT = "新增用户";
 	
-	private void input() throws Exception {
-		Scanner scanner = new Scanner(System.in);
+	private void input() {
     	System.out.println(CREATE_USER_TEXT);
     	System.out.println("请输入用户名：");
         String name=scanner.next();
@@ -42,8 +39,8 @@ public class CreateUserAction extends BaseAction {
 	
 	@Override
 	public void execute() {
+		input();
 		try {
-			input();
 			userService.createUser(user);
 			output(CREATE_USER_TEXT + "成功！！！");
 		} catch (Exception e) {

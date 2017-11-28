@@ -26,10 +26,10 @@ public class ListUserAction extends BaseAction {
 		input();
 		try {
 			users = userService.getAllUsers();
+			output(users);
 		} catch (BaseException e) {
 			output(e.getMessage());
 		}
-		output(users);
 	}
 
 	@Override

@@ -121,7 +121,7 @@ public class UserDaoJdbc extends BaseDaoJdbc implements UserDao {
 				user.setPassword(rs.getString("password"));
 				user.setId(id);
 			}
-		} catch (Exception exception) {
+		} catch (SQLException exception) {
 			throw new DaoException();
 		} finally {
 			closeResultSet(rs);
@@ -157,7 +157,7 @@ public class UserDaoJdbc extends BaseDaoJdbc implements UserDao {
 				users.add(user);
 			}
 			return users;
-		} catch (Exception exception) {
+		} catch (SQLException exception) {
 			throw new DaoException();
 		} finally {
 			closeResultSet(rs);
@@ -193,7 +193,7 @@ public class UserDaoJdbc extends BaseDaoJdbc implements UserDao {
 				user.setPassword(rs.getString("password"));
 				user.setId(rs.getLong("user_id"));
 			}
-		} catch (Exception exception) {
+		} catch (SQLException exception) {
 			throw new DaoException();
 		} finally {
 			closeResultSet(rs);

@@ -144,7 +144,7 @@ public class DocumentDaoJdbc extends BaseDaoJdbc implements DocumentDao {
 					document.setUser(user);
 				}
 			}
-		} catch (Exception exception) {
+		} catch (SQLException exception) {
 			throw new DaoException();
 		} finally {
 			closeResultSet(rs);
@@ -172,7 +172,7 @@ public class DocumentDaoJdbc extends BaseDaoJdbc implements DocumentDao {
 				documents.add(document);
 			}
 			return documents;
-		} catch (Exception exception) {
+		} catch (SQLException exception) {
 			throw new DaoException();
 		} finally {
 			closeResultSet(rs);
@@ -196,7 +196,7 @@ public class DocumentDaoJdbc extends BaseDaoJdbc implements DocumentDao {
 				long document_id = rs.getLong("document_id");
 				document = this.findById(document_id);
 			}
-		} catch (Exception exception) {
+		} catch (SQLException exception) {
 			throw new DaoException();
 		} finally {
 			closeResultSet(rs);

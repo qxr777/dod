@@ -1,7 +1,5 @@
 package edu.whut.cs.oo.action;
 
-import java.util.Scanner;
-
 import edu.whut.cs.oo.Application;
 import edu.whut.cs.oo.exception.BaseException;
 
@@ -13,7 +11,6 @@ public class ChangePasswordAction extends BaseAction {
 	
 	private void input() {
     	System.out.println(CHANGE_PASSWORD_TEXT);
-    	Scanner scanner = new Scanner(System.in);
         System.out.println("请输入口令：");
         newPassword=scanner.next();
 	}

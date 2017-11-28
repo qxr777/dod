@@ -4,6 +4,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/dod-v1"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/dod-v2"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/dod-v3"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="lib" path="lib/ApacheJMeter_core.jar"/>
+	<classpathentry kind="lib" path="lib/ApacheJMeter_java.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -17,8 +17,7 @@ public class Administrator extends User {
 //			"edu.whut.cs.oo.action.ExitAction"
 			};
 	
-	public Administrator() throws Exception {
-//		super.loadFunctions();
+	public Administrator() {
 	}
 	
 	public String[] getFunctionClassNames() {

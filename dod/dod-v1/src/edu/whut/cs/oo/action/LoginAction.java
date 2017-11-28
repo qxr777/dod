@@ -1,8 +1,7 @@
 package edu.whut.cs.oo.action;
 
-import java.util.Scanner;
-
 import edu.whut.cs.oo.domain.User;
+import edu.whut.cs.oo.exception.BaseException;
 import edu.whut.cs.oo.service.UserService;
 
 public class LoginAction extends BaseAction{
@@ -13,21 +12,19 @@ public class LoginAction extends BaseAction{
 	public static final String LOGIN_TEXT = "用户登录";
 	
 	private void input() {
-		Scanner scanner = new Scanner (System.in);
 		System.out.println(LOGIN_TEXT);
         System.out.print("请输入用户名：");		
         username=scanner.next();
         System.out.println("请输入口令：");	
         password=scanner.next();
-//        scanner.close();
 	}
 	
 	public User login() {
 		User user = null;
+		input();
 		try {
-			input();
 			user = userService.login(username, password);
-		} catch (Exception e) {
+		} catch (BaseException e) {
 			output(e.getMessage());
 		}
 		return user;

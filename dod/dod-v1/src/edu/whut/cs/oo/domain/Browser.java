@@ -14,10 +14,6 @@ public class Browser extends User {
 //			"edu.whut.cs.oo.action.ExitAction"
 			};
 	
-	public Browser() throws Exception {
-//		super.loadFunctions();
-	}
-	
 	public String[] getFunctionClassNames() {
 		return functionClassNames; 
 	}
