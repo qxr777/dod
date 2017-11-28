@@ -18,7 +18,7 @@ public abstract class User implements Serializable {
 	
 	protected List<Function> functions = new ArrayList<Function>();	
 	
-	public void loadFunctions() throws Exception {
+	public void loadFunctions() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
 		String[] functionClassNames = getFunctionClassNames();		
 		for (String functionClassName : functionClassNames) {
 			BaseAction baseAction = (BaseAction) Class.forName(functionClassName).newInstance();

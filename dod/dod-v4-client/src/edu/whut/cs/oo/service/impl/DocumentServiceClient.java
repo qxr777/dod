@@ -13,7 +13,7 @@ import edu.whut.cs.oo.service.DocumentService;
 
 public class DocumentServiceClient extends BaseServiceClient implements DocumentService{
 	
-	public Document uploadDocument(Document document) throws BaseException, IOException {
+	public Document uploadDocument(Document document) throws BaseException {
 		Message message = new Message();
 		message.setController(Constants.UPLOAD_DOCUMENT_CONTROLLER);
 		document.setName(getFileName(document.getSourcePath()));

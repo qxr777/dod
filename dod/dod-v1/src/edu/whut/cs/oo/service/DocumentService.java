@@ -11,7 +11,7 @@ public interface DocumentService {
 	
 	void setDocumentDao(DocumentDao documentDao);
 	
-	Document uploadDocument(Document document) throws BaseException, IOException;
+	Document uploadDocument(Document document) throws BaseException;
 	
 	Document createDocument(Document document) throws BaseException;
 	

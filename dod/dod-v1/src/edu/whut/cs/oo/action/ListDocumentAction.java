@@ -26,10 +26,10 @@ public class ListDocumentAction extends BaseAction {
 		input();
 		try {
 			documents = documentService.getAllDocuments();
+			output(documents);
 		} catch (BaseException e) {
 			output(e.getMessage());
 		}
-		output(documents);
 	}
 
 	@Override

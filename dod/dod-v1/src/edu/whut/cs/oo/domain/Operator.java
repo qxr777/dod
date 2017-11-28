@@ -14,10 +14,6 @@ public class Operator extends User {
 //			"edu.whut.cs.oo.action.ExitAction"
 			};
 	
-	public Operator() throws Exception {
-//		super.loadFunctions();
-	}
-	
 	public String[] getFunctionClassNames() {
 		return functionClassNames; 
 	}

@@ -1,11 +1,10 @@
 package edu.whut.cs.oo.action;
 
-import java.util.Scanner;
-
 import edu.whut.cs.oo.domain.Administrator;
 import edu.whut.cs.oo.domain.Browser;
 import edu.whut.cs.oo.domain.Operator;
 import edu.whut.cs.oo.domain.User;
+import edu.whut.cs.oo.exception.BaseException;
 
 public class UpdateUserAction extends BaseAction {
 	
@@ -13,8 +12,7 @@ public class UpdateUserAction extends BaseAction {
 	
 	public static final String UPDATE_USER_TEXT = "修改用户";
 	
-	private void input() throws Exception {
-		Scanner scanner = new Scanner(System.in);
+	private void input() {
     	System.out.println(UPDATE_USER_TEXT);
     	System.out.println("请输入用户名：");
         String name=scanner.next();
@@ -36,20 +34,15 @@ public class UpdateUserAction extends BaseAction {
 		
 		user.setName(name);
 		user.setPassword(password);
-//		scanner.close();
 	}
 	
-	protected void output(String message) {
-		System.out.println(message);
-	}
-
 	@Override
 	public void execute() {
 		try {
 			input();
 			userService.updateUser(user);
 			output(UPDATE_USER_TEXT + "成功！！！");
-		} catch (Exception e) {
+		} catch (BaseException e) {
 			output(e.getMessage());
 		}
 	}

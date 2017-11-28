@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import edu.whut.cs.oo.common.Constants;
+import edu.whut.cs.oo.exception.DaoException;
 
 public abstract class BaseDaoJdbc
 {
@@ -18,17 +19,18 @@ public abstract class BaseDaoJdbc
 
     private String password = Constants.DB_PASSWORD;
 
-    protected Connection getConnection() throws SQLException
+    protected Connection getConnection() throws SQLException, DaoException
     {
     	try {
 			Class.forName(driver);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
+			throw new DaoException();
 		}
         return DriverManager.getConnection(sConnStr, user, password);
     }
     
-    protected void closeConnection(Connection conn)
+    protected void closeConnection(Connection conn) throws DaoException
     {
         if (conn != null)
         {
@@ -38,12 +40,13 @@ public abstract class BaseDaoJdbc
             }
             catch (SQLException e)
             {
+            	throw new DaoException();
             }
             conn = null;
         }
     }
 
-    protected void closeResultSet(ResultSet rs)
+    protected void closeResultSet(ResultSet rs) throws DaoException
     {
         if (rs != null)
         {
@@ -53,12 +56,13 @@ public abstract class BaseDaoJdbc
             }
             catch (SQLException e)
             {
+            	throw new DaoException();
             }
             rs = null;
         }
     }
 
-    protected void closeStatement(Statement st)
+    protected void closeStatement(Statement st) throws DaoException
     {
         if (st != null)
         {
@@ -68,6 +72,7 @@ public abstract class BaseDaoJdbc
             }
             catch (SQLException e)
             {
+            	throw new DaoException();
             }
             st = null;
         }

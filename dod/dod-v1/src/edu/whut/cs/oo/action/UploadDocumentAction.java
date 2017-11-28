@@ -1,7 +1,5 @@
 package edu.whut.cs.oo.action;
 
-import java.util.Scanner;
-
 import edu.whut.cs.oo.Application;
 import edu.whut.cs.oo.domain.Document;
 
@@ -11,8 +9,7 @@ public class UploadDocumentAction extends BaseAction {
 	
 	public static final String UPLOAD_DOCUMENT_TEXT = "上传文件";
 	
-	private void input() throws Exception {
-		Scanner scanner = new Scanner(System.in);
+	private void input() {
     	System.out.println(UPLOAD_DOCUMENT_TEXT);                        
         System.out.println("请输入源文件名：");
         String filename = scanner.next();
@@ -36,8 +33,8 @@ public class UploadDocumentAction extends BaseAction {
 
 	@Override
 	public void execute() {
+		input();
 		try {
-			input();
 			documentService.uploadDocument(document); 
 			output(UPLOAD_DOCUMENT_TEXT + "成功！！！");
 		} catch (Exception e) {
