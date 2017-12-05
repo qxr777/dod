@@ -36,13 +36,18 @@ public abstract class BaseServiceClient {
 			input = new ObjectInputStream(client.getInputStream());
 			message = (Message)input.readObject();
 			checkStatusCode(message);	
-			output.close();
-			input.close();
-			client.close();
 		} catch (IOException e) {
 			throw new NetworkException();
 		} catch (ClassNotFoundException e) {
 			throw new NetworkException();
+		} finally {
+			try {
+				output.close();
+				input.close();
+				client.close();				
+			} catch (IOException e) {
+				throw new NetworkException();
+			}
 		}
 		return message;
 	}
@@ -60,13 +65,18 @@ public abstract class BaseServiceClient {
 			input = new ObjectInputStream(client.getInputStream());
 			message = (Message)input.readObject();
 			checkStatusCode(message);	
-			output.close();
-			input.close();
-			client.close();
 		} catch (IOException e) {
 			throw new NetworkException();
 		} catch (ClassNotFoundException e) {
 			throw new NetworkException();
+		} finally {
+			try {
+				output.close();
+				input.close();
+				client.close();				
+			} catch (IOException e) {
+				throw new NetworkException();
+			}
 		}
 		return message;
 	}
@@ -77,21 +87,23 @@ public abstract class BaseServiceClient {
 			output = new ObjectOutputStream(client.getOutputStream());
 			output.writeObject(message);
 			output.flush(); 
-			
 			input = new ObjectInputStream(client.getInputStream());
 			message = (Message)input.readObject();
 			checkStatusCode(message);	
-			
 			Document document = (Document)message.getData();
 			receiveFile(document.getName(), targetPath);
-			
-			output.close();
-			input.close();
-			client.close();
 		} catch (IOException e) {
 			throw new NetworkException();
 		} catch (ClassNotFoundException e) {
 			throw new NetworkException();
+		} finally {
+			try {
+				output.close();
+				input.close();
+				client.close();				
+			} catch (IOException e) {
+				throw new NetworkException();
+			}
 		}
 		return message;
 	}
