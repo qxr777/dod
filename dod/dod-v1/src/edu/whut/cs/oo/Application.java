@@ -36,13 +36,13 @@ public class Application {
 		documentService.setDocumentDao(documentDao);
 		
 		try {
-			if (documentService.getAllDocuments().size() == 0) {
-				documentService.clear();
-				createDocuments();
-			}
 			if (userService.getAllUsers().size() == 0) {
 				userService.clear();
 				createUsers();
+			}
+			if (documentService.getAllDocuments().size() == 0) {
+				documentService.clear();
+				createDocuments();
 			}
 			
 		} catch (Exception e) {
