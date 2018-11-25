@@ -35,7 +35,10 @@ public interface DocumentService {
     
     default String getFileName(String filename) {   
         if ((filename != null) && (filename.length() > 0)) {   
-            int split = filename.lastIndexOf('\\');   
+            int split = filename.lastIndexOf('\\');  
+            if (split == -1) {
+            	split = filename.lastIndexOf('/'); 
+            }
             if ((split >-1) && (split < (filename.length() - 1))) {   
                 return filename.substring(split + 1);   
             }   

@@ -2,9 +2,12 @@ package edu.whut.cs.oo.common;
 
 public interface Constants {
 	
-	static final String UPLOAD_PATH = "e:\\OOP\\uploadfile\\";
-	static final String UPLOAD_TEMP_PATH = "e:\\OOP\\uploadfile\\temp\\";
-	static final String DOWNLOAD_PATH = "e:\\OOP\\downloadfile\\";
+	static final String UPLOAD_PATH = "/Users/qixin/home/OOP/uploadfile/";
+	static final String UPLOAD_TEMP_PATH = "/Users/qixin/home/OOP/uploadfile/temp/";
+	static final String DOWNLOAD_PATH = "/Users/qixin/home/OOP/downloadfile/";
+	
+	static final String DOCUMENT_FILE = "/Users/qixin/home/OOP/document.bin";
+	static final String USER_FILE = "/Users/qixin/home/OOP/user.bin";
 	
 	static final String DB_DRIVER = "com.mysql.jdbc.Driver";
 	static final String DB_CONNECTION = "jdbc:mysql://localhost:4306/document";

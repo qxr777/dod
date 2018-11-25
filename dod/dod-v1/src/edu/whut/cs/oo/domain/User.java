@@ -16,7 +16,7 @@ public abstract class User implements Serializable {
 	private String name;
 	private String password;
 	
-	protected List<Function> functions = new ArrayList<Function>();	
+	transient protected List<Function> functions = new ArrayList<Function>();	
 	
 	public void loadFunctions() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
 		String[] functionClassNames = getFunctionClassNames();		
@@ -25,6 +25,9 @@ public abstract class User implements Serializable {
 			Function function = new Function();
 			function.setName(baseAction.getText());
 			function.setAction(baseAction);
+			if (functions == null) {
+				functions = new ArrayList<Function>();	
+			}
 			functions.add(function);
 		}
 	}

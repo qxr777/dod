@@ -72,6 +72,11 @@ public class DocumentServiceImpl implements DocumentService{
 	}
 	
 	private String uploadFile(String sourcefile) throws BaseException {
+		File uploadDirectory = new File(Constants.UPLOAD_PATH);
+		if (!uploadDirectory.exists()) {
+			uploadDirectory.mkdirs();
+		}
+		
 		byte[] buffer = new byte[1024];
 		
 		File tempFile =new File(sourcefile.trim());
@@ -97,6 +102,11 @@ public class DocumentServiceImpl implements DocumentService{
 	}
 	
 	private void downloadFile(Document document, String targetPath) throws IOException {
+		File downloadDirectory = new File(Constants.DOWNLOAD_PATH);
+		if (!downloadDirectory.exists()) {
+			downloadDirectory.mkdirs();
+		}
+		
 		byte[] buffer = new byte[1024];
 		
 		File tempFile =new File(document.getAbsolutePath());
@@ -115,26 +125,6 @@ public class DocumentServiceImpl implements DocumentService{
 		infile.close();
 		targetfile.close();
 	}
-	
-//	private void downloadFile(Document document) throws IOException {
-//		byte[] buffer = new byte[1024];
-//		
-//		File tempFile =new File(document.getAbsolutePath());
-//		String filename = document.getName();
-//		
-//		BufferedInputStream infile = new BufferedInputStream(new FileInputStream(tempFile));
-//		String saveFilePath = Constants.DOWNLOAD_PATH + filename;
-//		BufferedOutputStream targetfile = new BufferedOutputStream(new FileOutputStream(saveFilePath)); 
-//
-//		while (true) {
-//			int byteRead=infile.read(buffer); //从文件读数据给字节数组
-//            if (byteRead==-1) //在文件尾，无数据可读
-//                break;  //退出循环           
-//            targetfile.write(buffer,0,byteRead);  //将读到的数据写入目标文件
-//        }
-//		infile.close();
-//		targetfile.close();
-//	}
 
 	@Override
 	public Document downloadDocument(String sn, String targetPath) throws BaseException, IOException {
@@ -153,15 +143,5 @@ public class DocumentServiceImpl implements DocumentService{
 			documentDao.delete(document);
 		}
 	}
-
-//	@Override
-//	public Document downloadDocument(String sn) throws BaseException, IOException {
-//		Document document = documentDao.findBySn(sn);
-//		if (document == null) {
-//			throw new NoObjectException(sn);
-//		}
-//		downloadFile(document);
-//		return document;
-//	}
 
 }

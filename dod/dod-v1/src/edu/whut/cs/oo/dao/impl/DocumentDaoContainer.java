@@ -6,23 +6,24 @@ import java.util.List;
 
 import edu.whut.cs.oo.dao.DocumentDao;
 import edu.whut.cs.oo.domain.Document;
+import edu.whut.cs.oo.exception.BaseException;
 
 public class DocumentDaoContainer implements DocumentDao {
 	
 	private static Hashtable<String, Document> documents = new Hashtable<String, Document>();
 
 	@Override
-	public Document insert(Document object) {
+	public Document insert(Document object) throws BaseException {
 		return documents.put(object.getSn(), object);
 	}
 
 	@Override
-	public Document update(Document object) {
+	public Document update(Document object) throws BaseException {
 		return documents.replace(object.getSn(), object);
 	}
 
 	@Override
-	public Document delete(Document object) {
+	public Document delete(Document object) throws BaseException {
 		return documents.remove(object.getSn());
 	}
 

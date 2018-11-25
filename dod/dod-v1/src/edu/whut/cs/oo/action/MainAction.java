@@ -31,7 +31,7 @@ public class MainAction extends BaseAction {
 	private static void showFunctions(User user) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
 		String tip_menu = "["+user.getName()+"] 请选择菜单: ";
 		System.out.println(tip_menu);
-		if (user.getFunctions().size() == 0)
+		if (user.getFunctions() == null || user.getFunctions().size() == 0)
 			user.loadFunctions();
 		List<Function> functions = user.getFunctions();
 		for (int i = 0; i < functions.size(); i++) {

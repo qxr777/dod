@@ -6,23 +6,24 @@ import java.util.List;
 
 import edu.whut.cs.oo.dao.UserDao;
 import edu.whut.cs.oo.domain.User;
+import edu.whut.cs.oo.exception.BaseException;
 
 public class UserDaoContainer implements UserDao {
 	
 	private static Hashtable<String, User> users = new Hashtable<String, User>();
 
 	@Override
-	public User insert(User object) {
+	public User insert(User object) throws BaseException {
 		return users.put(object.getName(), object);
 	}
 
 	@Override
-	public User update(User object) {
+	public User update(User object) throws BaseException  {
 		return users.put(object.getName(), object);
 	}
 
 	@Override
-	public User delete(User object) {
+	public User delete(User object) throws BaseException  {
 		return users.remove(object.getName());
 	}
 

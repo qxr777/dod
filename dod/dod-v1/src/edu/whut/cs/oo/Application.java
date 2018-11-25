@@ -2,8 +2,8 @@ package edu.whut.cs.oo;
 
 import edu.whut.cs.oo.dao.DocumentDao;
 import edu.whut.cs.oo.dao.UserDao;
-import edu.whut.cs.oo.dao.impl.DocumentDaoContainer;
-import edu.whut.cs.oo.dao.impl.UserDaoContainer;
+import edu.whut.cs.oo.dao.impl.DocumentDaoContainerFile;
+import edu.whut.cs.oo.dao.impl.UserDaoContainerFile;
 import edu.whut.cs.oo.domain.Administrator;
 import edu.whut.cs.oo.domain.Browser;
 import edu.whut.cs.oo.domain.Document;
@@ -25,19 +25,26 @@ public class Application {
 	public static DocumentService documentService;
 	
 	static {
-		UserDao userDao = new UserDaoContainer();
+//		UserDao userDao = new UserDaoContainer();
+		UserDao userDao = new UserDaoContainerFile();
 		userService = new UserServiceImpl();
 		userService.setUserDao(userDao);
 		
-		DocumentDao documentDao = new DocumentDaoContainer();
+//		DocumentDao documentDao = new DocumentDaoContainer();
+		DocumentDao documentDao = new DocumentDaoContainerFile();
 		documentService = new DocumentServiceImpl();
 		documentService.setDocumentDao(documentDao);
 		
 		try {
-			documentService.clear();
-			userService.clear();
-			createUsers();
-			createDocuments();
+			if (documentService.getAllDocuments().size() == 0) {
+				documentService.clear();
+				createDocuments();
+			}
+			if (userService.getAllUsers().size() == 0) {
+				userService.clear();
+				createUsers();
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
