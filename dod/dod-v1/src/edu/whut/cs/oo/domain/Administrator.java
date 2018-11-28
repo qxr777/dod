@@ -6,7 +6,7 @@ public class Administrator extends User {
 	 * 
 	 */
 	private static final long serialVersionUID = -1066705624276087251L;
-	private String[] functionClassNames = {
+	private static String[] functionClassNames = {
 			"edu.whut.cs.oo.action.CreateUserAction", 
 			"edu.whut.cs.oo.action.UpdateUserAction", 
 			"edu.whut.cs.oo.action.DeleteUserAction", 
