@@ -7,7 +7,7 @@ public class Browser extends User {
 	 */
 	private static final long serialVersionUID = -465292455052819445L;
 	
-	private String[] functionClassNames = {
+	private static String[] functionClassNames = {
 			"edu.whut.cs.oo.action.DownloadDocumentAction", 
 			"edu.whut.cs.oo.action.ListDocumentAction", 
 			"edu.whut.cs.oo.action.ChangePasswordAction"//,
