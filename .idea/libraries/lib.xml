@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dod/dod-v4-client/lib/ApacheJMeter_java.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dod/dod-v4-client/lib/ApacheJMeter_core.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
